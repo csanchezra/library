@@ -42,7 +42,7 @@ class UserController extends Controller
   {
     // echo "<pre>";print_r($request->all());
     // die();
-    $validator = $request->validate();
+    $validator = $request->validated();
     if($validator)
     {
       $data_insert = $request->all();
