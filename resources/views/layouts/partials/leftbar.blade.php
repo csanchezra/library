@@ -13,8 +13,8 @@
               </a>
           </li>
           <li>
-              <a href="{{ URL::route('students-approved')}}">
-                  <i class="menu-icon icon-group" style="color: white;"></i>All approved Students
+              <a href="{{ URL::route('students-all')}}">
+                  <i class="menu-icon icon-group" style="color: white;"></i>All Students
               </a>
           </li>
           <li>

@@ -40,7 +40,7 @@ Route::get('/home', HomeController::class,)->name('home');
 Route::get('logout', [LoginController::class,"logout"])->name('log-out-post');
 
 Route::get('show_waiting_students', [StudentController::class,"show_waiting_students"])->name('students-waiting');
-Route::get('show_approved_students', [StudentController::class,"show_approved_students"])->name('students-approved');
+Route::get('show_approved_students', [StudentController::class,"show_approved_students"])->name('students-all');
 
 Route::get('create_category', [BookController::class,"create_category"])->name('category-new');
 Route::post('category-store', [BookController::class,"store_category"])->name('category-store');

@@ -64,9 +64,23 @@ class StudentController extends Controller
       return view("students.students_status");
   }
 
-  public function show_approved_students(){
-      $students = Student::where(['approved'	=> 1])->orderBy('student_id','desc')->paginate(1);
-      return view("students.students_status",compact('students'));
+  public function show_approved_students(Request $request){
+    if ($request->ajax()) {
+
+        // $data = Student::select()->orderBy('student_id','desc');
+
+        $data = Student::select()
+        ->selectRaw('CASE
+        WHEN approved = 1 THEN "approved"
+        WHEN rejected = 1 THEN "rejected"
+        ELSE ""
+        END AS status_student');
+
+        return Datatables::of($data)
+                ->addIndexColumn()
+                ->make(true);
+    }
+      return view("students.all_students");
   }
 
   public function ajaxRequestStatus(Request $request)
