@@ -1,0 +1,25 @@
+.table th {
+    padding-right: 0% !important;
+}
+
+.navbar-inner {
+    background-color: gainsboro !important;
+    color: black !important;
+}
+
+.footer {
+    background-color: gainsboro !important;
+    color: black !important;
+}
+
+a, p {
+    color: black !important;
+}
+
+li>a {
+    color: azure !important;
+}
+
+li {
+    background-color: bisque;
+}
