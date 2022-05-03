@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\BookCategory;
 use App\Models\Book;
 use App\Models\Issue;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DataTables;
@@ -100,5 +101,89 @@ class BookController extends Controller
       echo $buildInfo->version, "\n";
 
   }
+
+
+  public function create_image()
+{
+
+  return view("books.addimage");
+
+}
+
+
+public function store_image(Request $request)
+
+{
+   var_dump($request);die();
+    // $imagen = (file_get_contents($request->file('file')));
+
+
+
+  // $validatedData = $request->validate([
+  //  'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+  // ]);
+  // $name = $request->file('image')->getClientOriginalName();
+  // $path = $request->file('image')->store('public/uploads');
+  $save = new Post;
+  $save->slug2 = "sssssss";
+  // $save->image = $imagen;
+  // $save->path = $path;
+  $save->save();
+
+  // $images = $request->file('file');
+
+  // var_dump($images);die();
+
+  // foreach ($images as $key => $image) {
+
+     // if ($request->hasFile('file') && $request->file('file')[$key]->isValid()) {
+     //     $path = $request->file[$key]->store('public/images');
+     //     $path = basename($path);
+
+         // $image = new Post();
+         // $image->_id = "4";
+         // $image->image = $images;
+         // $image->save();
+     // }
+  // }
+
+
+  // $post = new Post;
+  //
+  //        $post->title = $request->title;
+  //        $post->body = $request->body;
+  //        $post->slug = $request->slug;
+  //
+  //        $post->save();
+
+
+  // if ($request->hasFile('file')) {
+  //
+  //   echo "aca";die();
+  //     $path = $images->store('public/images');
+  //     $path = basename($path);
+  //
+  //     $image = new Post();
+  //     $image->_id = "4";
+  //     $image->image = $path;
+  //     $image->save();
+  // }
+
+}
+
+
+
+  public function show_mongo($slug)
+{
+
+        $data = Post::where('_id', '=', $slug)->first();
+
+        // $data = Post::all();
+
+        // $account = DB::connection('mongodb')->collection('listingsAndReviews')->where('_id','=','10006546');
+
+        var_dump($data);die();
+
+}
 
 }

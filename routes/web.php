@@ -40,6 +40,7 @@ Route::get('/home', HomeController::class,)->name('home');
 Route::get('logout', [LoginController::class,"logout"])->name('log-out-post');
 
 Route::get('show_waiting_students', [StudentController::class,"show_waiting_students"])->name('students-waiting');
+
 Route::get('show_approved_students', [StudentController::class,"show_approved_students"])->name('students-all');
 
 Route::get('create_category', [BookController::class,"create_category"])->name('category-new');
@@ -49,6 +50,9 @@ Route::get('create', [BookController::class,"create"])->name('book-new');
 Route::post('store', [BookController::class,"store"])->name('book-store');
 Route::get('show', [BookController::class,"show"])->name('books');
 
+Route::get('create_image', [BookController::class,"create_image"])->name('image-new');
+
+Route::post('store_image', [BookController::class,"store_image"])->name('image-store');
 
 
 Route::post('ajaxRequest', [StudentController::class, 'ajaxRequestStatus'])->name('ajaxRequestStatus.post');

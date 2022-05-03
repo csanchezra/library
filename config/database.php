@@ -90,7 +90,11 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
-
+        'mongodb' => [
+        'driver' => 'mongodb',
+        'dsn' => env('DB_URI', 'mongodb+srv://csanchez91:Ipu9VX1qLJZRT2Zq@cluster0.ogwvh.mongodb.net/users?retryWrites=true&w=majority'),
+        'database' => 'users',
+      ],
     ],
 
     /*

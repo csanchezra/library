@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Student;
+use App\Models\Branch;
+use App\Models\StudentCategories;
 use Illuminate\Http\Request;
 use DataTables;
 
@@ -11,7 +13,12 @@ class StudentController extends Controller
 
   public function create()
   {
-    return view("students.create");
+    $branch_list = Branch::select()->orderBy('id')->get();
+    $student_categories_list = StudentCategories::select()->orderBy('cat_id')->get();
+
+    return view("students.create")
+    ->with('branch_list', $branch_list)
+    ->with('student_categories_list', $student_categories_list);
   }
 
   public function store(Request $request)
@@ -21,11 +28,11 @@ class StudentController extends Controller
     // $validator = $request->validate();
     // if($validator)
     // {
-      // $data_insert = $request->all();
+      $data_insert = $request->all();
       // $simple_password = $data_insert['password'];
       // unset($data_insert['password']);
       // $data_insert['password'] = Hash::make($simple_password);
-      Student::create($request);
+      Student::create($data_insert);
       return redirect()->route('student-new');
     // }
     // else
