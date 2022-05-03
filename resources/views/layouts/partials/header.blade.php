@@ -17,7 +17,7 @@
             <div class="nav-collapse collapse navbar-inverse-collapse">
                 <ul class="nav pull-right">
                     <li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="{{ asset('images/passport-size.png') }}" class="nav-avatar" />
+                        <img src="{{ asset('images/icon.png') }}" class="nav-avatar" />
                         <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#" target="_blank">Profile</a></li>
